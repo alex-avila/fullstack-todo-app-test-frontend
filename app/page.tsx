@@ -1,10 +1,17 @@
-import { Button } from "@/components/button";
+import { LinkButton } from "@/components/button";
+import { TasksProvider } from "@/components/tasks-provider";
+import { Tasks } from "@/components/tasks";
+import { fetchTasks } from "@/lib/data";
 
-export default function HomePage() {
+export default async function HomePage() {
+  const allTasks = await fetchTasks();
+
+  const completedTasksLength = allTasks.filter((task) => task.completed).length;
+
   return (
     <div>
       <div className="-translate-y-1/2">
-        <Button>Create Task</Button>
+        <LinkButton href="/create">Create Task</LinkButton>
       </div>
 
       <div className="pt-10 pb-6">
@@ -12,25 +19,33 @@ export default function HomePage() {
           <div className="flex gap-2">
             <span className="text-app-blue">Tasks</span>
             <span className="bg-app-gray-300 rounded-full px-2 py-0.5 text-xs">
-              0
+              {allTasks.length}
             </span>
           </div>
           <div className="flex gap-2">
             <span className="text-app-purple">Completed</span>
             <span className="bg-app-gray-300 rounded-full px-2 py-0.5 text-xs">
-              0
+              {allTasks.length === 0
+                ? 0
+                : `${completedTasksLength} of ${allTasks.length}`}
             </span>
           </div>
         </div>
       </div>
 
       <div className="rounded-lg border-t border-app-gray-300 text-app-gray-200 text-center">
-        <div className="py-16 px-4">
-          <div className="font-bold mb-4">
-            You don&apos;t have any tasks registered yet.
+        {allTasks.length === 0 ? (
+          <div className="py-16 px-4">
+            <div className="font-bold mb-4">
+              You don&apos;t have any tasks registered yet.
+            </div>
+            <div>Create tasks and organize your to-do items.</div>
           </div>
-          <div>Create tasks and organize your to-do items.</div>
-        </div>
+        ) : (
+          <TasksProvider initialTasks={allTasks}>
+            <Tasks />
+          </TasksProvider>
+        )}
       </div>
     </div>
   );

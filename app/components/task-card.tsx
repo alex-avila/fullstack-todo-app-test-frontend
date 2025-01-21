@@ -9,6 +9,8 @@ import { deleteTaskAction } from "@/lib/actions";
 import { config } from "@/lib/config";
 import { TasksContext } from "@/components/tasks-provider";
 import { AlertDialogContext } from "@/components/alert-dialog";
+import { TrashIcon } from "./icons/trash-icon";
+import { CheckmarkIcon } from "./icons/checkmark-icon";
 
 interface TaskProps {
   task: Task;
@@ -33,7 +35,9 @@ function TaskCompleteCheckbox({
           onCheckedChange={updateTask.bind(null, id)}
         >
           <div className="relative z-10 size-[1.125rem] rounded-full border-2 border-app-blue group-data-[state=checked]:border-app-purple group-data-[state=checked]:bg-app-purple">
-            <Checkbox.Indicator />
+            <Checkbox.Indicator className="flex h-full w-full justify-center items-center">
+              <CheckmarkIcon />
+            </Checkbox.Indicator>
           </div>
         </Checkbox.Root>
       </div>
@@ -53,7 +57,7 @@ export function TaskCard({ task }: TaskProps) {
 
   return (
     <div className="relative">
-      <div className="flex gap-3 rounded-lg bg-app-gray-350 border border-app-gray-300 p-4 text-left text-foreground text-sm [box-shadow:0_2px_8px_0_rgba(0,0,0,0.06)]">
+      <div className="flex items-start gap-3 rounded-lg bg-app-gray-350 border border-app-gray-300 p-4 text-left text-foreground text-sm [box-shadow:0_2px_8px_0_rgba(0,0,0,0.06)]">
         <TaskCompleteCheckbox id={task.id} completed={task.completed} />
 
         <div className="mr-auto">{task.title}</div>
@@ -61,7 +65,7 @@ export function TaskCard({ task }: TaskProps) {
         {task.color && (
           <div className="size-6 flex justify-center items-center">
             <span
-              className="size-[1.125rem] rounded-full"
+              className="size-3 rounded-full"
               style={{ backgroundColor: task.color }}
             />
             {foundTaskColor && (
@@ -71,11 +75,13 @@ export function TaskCard({ task }: TaskProps) {
         )}
 
         <button
-          className="relative z-10 size-6 flex justify-center items-center"
+          className="group relative z-10 size-6 flex justify-center items-center"
           onClick={handleDeleteClick}
         >
           <span className="sr-only">Delete task</span>
-          <span>X</span>
+          <div className="[&_svg]:group-hover:fill-foreground [&_svg]:transition-colors">
+            <TrashIcon />
+          </div>
         </button>
       </div>
       <Link className="absolute inset-0" href={`/edit/${task.id}`}></Link>

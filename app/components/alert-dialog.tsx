@@ -76,7 +76,7 @@ export function AlertDialog() {
       <RadixAlertDialog.Trigger />
       <RadixAlertDialog.Portal>
         <RadixAlertDialog.Overlay className="fixed inset-0 bg-black/50" />
-        <RadixAlertDialog.Content className="bg-background rounded-lg border border-app-gray-300 fixed top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-5/6 max-w-sm p-6">
+        <RadixAlertDialog.Content className="bg-background rounded-lg border border-app-gray-350 fixed top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-5/6 max-w-sm p-6">
           <RadixAlertDialog.Title className="font-bold pb-2">
             Are you sure?
           </RadixAlertDialog.Title>

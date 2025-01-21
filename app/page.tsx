@@ -1,8 +1,11 @@
+import Image from "next/image";
 import { LinkButton } from "@/components/button";
 import { TasksProvider } from "@/components/tasks-provider";
 import { Tasks } from "@/components/tasks";
 import { AlertDialogProvider, AlertDialog } from "@/components/alert-dialog";
+import { PlusIcon } from "@/components/icons/plus-icon";
 import { fetchTasks } from "@/lib/data";
+import imageClipboard from "@/assets/image-clipboard.png";
 
 export default async function HomePage() {
   const allTasks = await fetchTasks();
@@ -12,7 +15,10 @@ export default async function HomePage() {
   return (
     <div>
       <div className="-translate-y-1/2">
-        <LinkButton href="/create">Create Task</LinkButton>
+        <LinkButton href="/create">
+          Create Task
+          <PlusIcon />
+        </LinkButton>
       </div>
 
       <div className="pt-10 pb-6">
@@ -36,8 +42,15 @@ export default async function HomePage() {
 
       <div className="rounded-lg border-t border-app-gray-300 text-app-gray-200 text-center">
         {allTasks.length === 0 ? (
-          <div className="py-16 px-4">
-            <div className="font-bold mb-4">
+          <div className="flex flex-col items-center py-16 px-4">
+            <Image
+              className="size-14"
+              src={imageClipboard}
+              alt=""
+              height={56}
+              width={56}
+            />
+            <div className="font-bold my-4">
               You don&apos;t have any tasks registered yet.
             </div>
             <div>Create tasks and organize your to-do items.</div>

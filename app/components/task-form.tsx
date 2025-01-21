@@ -8,6 +8,8 @@ import { ErrorMessage } from "@hookform/error-message";
 import { z } from "zod";
 
 import { Button } from "@/components/button";
+import { PlusIcon } from "@/components/icons/plus-icon";
+import { CheckmarkThickIcon } from "@/components/icons/checkmark-thick-icon";
 import { Task, taskSchema } from "@/lib/schema";
 import { createTaskAction, updateTaskAction } from "@/lib/actions";
 import { config } from "@/lib/config";
@@ -117,6 +119,7 @@ export function TaskForm({ task }: TaskFormProps) {
             : isPending
               ? "Adding task…"
               : "Add Task"}
+          {task ? <CheckmarkThickIcon /> : <PlusIcon />}
         </Button>
       </div>
     </form>

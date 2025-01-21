@@ -1,4 +1,3 @@
-import Link from "next/link";
 import { TaskForm } from "@/components/task-form";
 import { fetchTasks } from "@/lib/data";
 
@@ -16,12 +15,5 @@ export default async function EditTaskPage({ params }: EditTaskPageProps) {
     return `Task with id ${taskId} not found`;
   }
 
-  return (
-    <div className="pt-24">
-      <Link href="/">Back</Link>
-      <div className="pt-12">
-        <TaskForm task={foundTask} />
-      </div>
-    </div>
-  );
+  return <TaskForm task={foundTask} />;
 }

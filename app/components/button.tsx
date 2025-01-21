@@ -34,7 +34,7 @@ export function LinkButton({
 }: LinkProps & { children?: React.ReactNode }) {
   return (
     <Link
-      className="flex gap-2 items-center justify-center text-center rounded-lg bg-app-blue-dark p-4 w-full text-foreground text-sm font-bold hover:bg-app-blue transition focus:bg-app-blue disabled:!bg-app-blue-dark/50"
+      className="flex w-full items-center justify-center gap-2 rounded-lg bg-app-blue-dark p-4 text-center text-sm font-bold text-foreground transition hover:bg-app-blue focus:bg-app-blue disabled:!bg-app-blue-dark/50"
       {...props}
     >
       {children}

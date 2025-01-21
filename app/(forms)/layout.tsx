@@ -8,7 +8,7 @@ export default function CreateTaskPage({
 }>) {
   return (
     <div className="pt-24">
-      <Link className="inline-flex -m-2 p-2" href="/">
+      <Link className="-m-2 inline-flex p-2" href="/">
         <span className="sr-only">Back</span>
         <ArrowIcon />
       </Link>

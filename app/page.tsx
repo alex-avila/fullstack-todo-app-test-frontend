@@ -21,17 +21,17 @@ export default async function HomePage() {
         </LinkButton>
       </div>
 
-      <div className="pt-10 pb-6">
-        <div className="flex justify-between font-bold text-sm">
+      <div className="pb-6 pt-10">
+        <div className="flex justify-between text-sm font-bold">
           <div className="flex gap-2">
             <span className="text-app-blue">Tasks</span>
-            <span className="bg-app-gray-300 rounded-full px-2 py-0.5 text-xs">
+            <span className="rounded-full bg-app-gray-300 px-2 py-0.5 text-xs">
               {allTasks.length}
             </span>
           </div>
           <div className="flex gap-2">
             <span className="text-app-purple">Completed</span>
-            <span className="bg-app-gray-300 rounded-full px-2 py-0.5 text-xs">
+            <span className="rounded-full bg-app-gray-300 px-2 py-0.5 text-xs">
               {allTasks.length === 0
                 ? 0
                 : `${completedTasksLength} of ${allTasks.length}`}
@@ -40,9 +40,9 @@ export default async function HomePage() {
         </div>
       </div>
 
-      <div className="rounded-lg border-t border-app-gray-300 text-app-gray-200 text-center">
+      <div className="rounded-lg border-t border-app-gray-300 text-center text-app-gray-200">
         {allTasks.length === 0 ? (
-          <div className="flex flex-col items-center py-16 px-4">
+          <div className="flex flex-col items-center px-4 py-16">
             <Image
               className="size-14"
               src={imageClipboard}
@@ -50,7 +50,7 @@ export default async function HomePage() {
               height={56}
               width={56}
             />
-            <div className="font-bold my-4">
+            <div className="my-4 font-bold">
               You don&apos;t have any tasks registered yet.
             </div>
             <div>Create tasks and organize your to-do items.</div>

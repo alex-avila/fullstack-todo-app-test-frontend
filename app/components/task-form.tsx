@@ -54,14 +54,14 @@ export function TaskForm({ task }: TaskFormProps) {
     <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-6">
       <div>
         <label
-          className="text-app-blue text-sm font-bold block pb-3"
+          className="block pb-3 text-sm font-bold text-app-blue"
           htmlFor="title"
         >
           Title
         </label>
         <input
           id="title"
-          className="bg-app-gray-350 rounded-lg w-full p-4 text-sm border border-app-gray-300 [box-shadow:0_2px_8px_0_rgba(0,0,0,0.06)]"
+          className="w-full rounded-lg border border-app-gray-300 bg-app-gray-350 p-4 text-sm [box-shadow:0_2px_8px_0_rgba(0,0,0,0.06)]"
           placeholder="Ex. Brush your teeth"
           {...form.register("title", { required: true })}
         />
@@ -69,18 +69,18 @@ export function TaskForm({ task }: TaskFormProps) {
           errors={form.formState.errors}
           name="title"
           render={({ message }) => (
-            <p className="text-red-500 text-sm pt-2">{message}</p>
+            <p className="pt-2 text-sm text-red-500">{message}</p>
           )}
         />
       </div>
 
       <fieldset>
-        <legend className="text-app-blue text-sm font-bold block pb-3">
+        <legend className="block pb-3 text-sm font-bold text-app-blue">
           Color
         </legend>
         <RadioGroup.Root
           aria-label="Color"
-          className="flex gap-4 flex-wrap"
+          className="flex flex-wrap gap-4"
           defaultValue={task?.color || ""}
           onValueChange={handleColorChange}
         >
@@ -94,7 +94,7 @@ export function TaskForm({ task }: TaskFormProps) {
                 className="relative size-[3.25rem] rounded-full"
                 style={{ backgroundColor: color.hex }}
               >
-                <RadioGroup.Indicator className="absolute inset-0 border-2 border-white z-10 rounded-full" />
+                <RadioGroup.Indicator className="absolute inset-0 z-10 rounded-full border-2 border-white" />
               </RadioGroup.Item>
               <label className="sr-only" htmlFor={color.name}>
                 {color.name}
@@ -106,7 +106,7 @@ export function TaskForm({ task }: TaskFormProps) {
           errors={form.formState.errors}
           name="color"
           render={({ message }) => (
-            <p className="text-red-500 text-sm pt-2">{message}</p>
+            <p className="pt-2 text-sm text-red-500">{message}</p>
           )}
         />
       </fieldset>

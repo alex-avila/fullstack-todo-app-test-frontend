@@ -76,16 +76,16 @@ export function AlertDialog() {
       <RadixAlertDialog.Trigger />
       <RadixAlertDialog.Portal>
         <RadixAlertDialog.Overlay className="fixed inset-0 bg-black/50" />
-        <RadixAlertDialog.Content className="bg-background rounded-lg border border-app-gray-350 fixed top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-5/6 max-w-sm p-6">
-          <RadixAlertDialog.Title className="font-bold pb-2">
+        <RadixAlertDialog.Content className="fixed left-1/2 top-1/2 w-5/6 max-w-sm -translate-x-1/2 -translate-y-1/2 rounded-lg border border-app-gray-350 bg-background p-6">
+          <RadixAlertDialog.Title className="pb-2 font-bold">
             Are you sure?
           </RadixAlertDialog.Title>
-          <RadixAlertDialog.Description className="text-sm pb-4">
+          <RadixAlertDialog.Description className="pb-4 text-sm">
             This action cannot be undone. This will permanently delete your task
             and remove it from our servers.
           </RadixAlertDialog.Description>
-          <div className="flex gap-5 justify-end">
-            <RadixAlertDialog.Cancel className="text-sm hover:underline font-medium">
+          <div className="flex justify-end gap-5">
+            <RadixAlertDialog.Cancel className="text-sm font-medium hover:underline">
               Cancel
             </RadixAlertDialog.Cancel>
             <div className="w-min">

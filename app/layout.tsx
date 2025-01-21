@@ -22,9 +22,9 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={`${interFont.variable} antialiased`}>
-        <header className="bg-app-gray-500 pt-[4.5rem] pb-20 px-4 flex items-center justify-center">
+        <header className="flex items-center justify-center bg-app-gray-500 px-4 pb-20 pt-[4.5rem]">
           <Link href="/">
-            <h1 className="flex gap-3 items-end justify-center text-[2.5rem] leading-[3.0257rem] font-black">
+            <h1 className="flex items-end justify-center gap-3 text-[2.5rem] font-black leading-[3.0257rem]">
               <div className="relative bottom-0.5" aria-hidden>
                 <RocketIcon />
               </div>
@@ -35,7 +35,7 @@ export default function RootLayout({
             </h1>
           </Link>
         </header>
-        <main className="max-w-[46.25rem] mx-auto px-4">{children}</main>
+        <main className="mx-auto max-w-[46.25rem] px-4">{children}</main>
       </body>
     </html>
   );

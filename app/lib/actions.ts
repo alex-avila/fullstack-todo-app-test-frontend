@@ -45,8 +45,6 @@ export async function updateTaskAction(
     throw new Error("[zod]: Validation failed");
   }
 
-  console.log("updateTaskAction data", parsedRes.data);
-
   await fetch(`${tasksBaseUrl}/${id}`, {
     method: "PUT",
     headers: {

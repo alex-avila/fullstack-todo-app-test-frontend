@@ -8,6 +8,7 @@ import type { Task } from "@/lib/schema";
 import { deleteTaskAction } from "@/lib/actions";
 import { config } from "@/lib/config";
 import { TasksContext } from "@/components/tasks-provider";
+import { AlertDialogContext } from "@/components/alert-dialog";
 
 interface TaskProps {
   task: Task;
@@ -41,9 +42,14 @@ function TaskCompleteCheckbox({
 }
 
 export function TaskCard({ task }: TaskProps) {
+  const { openDialog } = useContext(AlertDialogContext);
   const foundTaskColor = config.colors.find(
     (color) => color.hex === task.color,
   );
+
+  const handleDeleteClick = () => {
+    openDialog(() => deleteTaskAction({ id: task.id }));
+  };
 
   return (
     <div className="relative">
@@ -66,7 +72,7 @@ export function TaskCard({ task }: TaskProps) {
 
         <button
           className="relative z-10 size-6 flex justify-center items-center"
-          onClick={() => deleteTaskAction({ id: task.id })}
+          onClick={handleDeleteClick}
         >
           <span className="sr-only">Delete task</span>
           <span>X</span>

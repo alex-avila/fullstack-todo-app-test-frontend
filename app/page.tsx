@@ -1,6 +1,7 @@
 import { LinkButton } from "@/components/button";
 import { TasksProvider } from "@/components/tasks-provider";
 import { Tasks } from "@/components/tasks";
+import { AlertDialogProvider, AlertDialog } from "@/components/alert-dialog";
 import { fetchTasks } from "@/lib/data";
 
 export default async function HomePage() {
@@ -42,9 +43,12 @@ export default async function HomePage() {
             <div>Create tasks and organize your to-do items.</div>
           </div>
         ) : (
-          <TasksProvider initialTasks={allTasks}>
-            <Tasks />
-          </TasksProvider>
+          <AlertDialogProvider>
+            <TasksProvider initialTasks={allTasks}>
+              <Tasks />
+            </TasksProvider>
+            <AlertDialog />
+          </AlertDialogProvider>
         )}
       </div>
     </div>

@@ -2,7 +2,7 @@
 
 The Next.js frontend for the [Full Stack Todo App Backend](https://github.com/alex-avila/fullstack-todo-app-test-backend).
 
-Please follow the instructions the repository for the backend to run the server then follow the instructions below to run the full stack todo app.
+Please follow the instructions on the [repository for the backend](https://github.com/alex-avila/fullstack-todo-app-test-backend) to run the server then follow the instructions below to run the Full Stack Todo App.
 
 ## Prerequisites
 
